@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weather</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
+    crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://3.bp.blogspot.com/-xAeZWmK9-E8/UY0Z-52ApjI/AAAAAAAAEZM/T70i1GUzA8Q/s1600/DSC02436.jpg'); /* Replace 'your-image-url.jpg' with the actual image URL */
+            background-size: cover; /* To cover the entire background */
+            background-repeat: no-repeat; /* To prevent image from repeating */
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="mt-5">Weather App</h1>
+        <form action="/" method="post">
+            <input type="text" id="cityName" name="cityName" placeholder="City">
+            <input type="text" id="stateName" name="stateName" placeholder="State">
+            <input type="text" id="countryName" name="countryName" placeholder="Country">
+            <button>FIND</button>
+        </form>
+        
+        {% if data %}
+        <p style="color: #000;">Main Weather: {{ data.main }}</p>
+        <p style="color: #000;">Description: {{ data.description }}</p>
+        <p style="color: #000;">Temperature: {{ data.temperature }}°C</p>
+            <img src="http://openweathermap.org/img/wn/{{ data.icon }}.png" alt="Weather Icon">
+        {% endif %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+    crossorigin="anonymous"></script>
+</body>
+</html>
